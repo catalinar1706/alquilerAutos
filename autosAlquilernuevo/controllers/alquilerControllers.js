@@ -1,16 +1,15 @@
 const {alquiler} = require('../models');
 
-exports.createAlquiler = async (req,res) =>{
-    const {fecha_inicio,fecha_fin}= req.body;
+exports.createAlquiler = async (req, res) => {
+    const { fecha_inicio, fecha_fin } = req.body;
     try {
-        const Crear = await auto.create({fecha_inicio,fecha_fin})
-        res.json(Crear);
+      const crear = await Alquileres.create({ fecha_inicio, fecha_fin });
+      res.json(crear);
     } catch (error) {
-        console.log(error);
-        res.json({mensaje:'error'})
-        
-    };
-};
+      console.log(error);
+      res.json({ mensaje: 'error' });
+    }
+  };
 
 exports.getAlquiler = async (req, res) => {
     try {
@@ -23,7 +22,7 @@ exports.getAlquiler = async (req, res) => {
 }
 
 
-exports.historial = async (req, res) => {
+exports.expediente = async (req, res) => {
     try {
         const alquilerr = await alquiler.findAll({
             include: [
